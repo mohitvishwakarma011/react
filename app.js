@@ -1,15 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-// Started Using JSX from Now Onwards
-//! Remember ->
-//! JSX-> babel -> JS Object(using React.createElement) -> root.render(JS object)
+const Title = <h1>I am Title of the page</h1>
 
-//? Remember -> If you are using JSX in multiple lines you have to wrap it inside parantheses so that babel can understant it is end of the jsx( not necessary to use parantheses when writing single line of jsx)
-const heading = <h1>Namaste React from JSX</h1>;
 
+const Content = () => (
+   
+    <div>
+      {Title}
+      <p>I am the Paragraph of the page</p>
+    </div>
+)
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-
-root.render(heading);
+root.render(<Content/>);
