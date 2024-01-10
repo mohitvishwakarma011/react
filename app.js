@@ -1,16 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const Title = <h1>I am Title of the page</h1>
-
-
-const Content = () => (
-   
-    <div>
-      {Title}
-      <p>I am the Paragraph of the page</p>
-    </div>
-)
+//? Food Ordering App
+/** Components:-
+ *  
+ * Header
+ *    -logo
+ *    -Nav Items
+ * Body
+ *    -Search
+ *    -Restaurant cintainer
+ *            -cards
+ * Footer
+ *    -Copyright
+ *    -Links
+ *    -Address
+ *    -Contact
+ */
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
