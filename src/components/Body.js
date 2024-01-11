@@ -1,3 +1,4 @@
+import resList from '../utils/mockData.js'
 import RestaurantCard from "./RestaurantCard.js";
 
 const Body = () => {
