@@ -24,11 +24,11 @@
 
 .res-card{
     width: 200px;
-    height: 300px;
+    
     border: 1px solid black;
-    text-align: center;
+    /* text-align: center; */
     border-radius: 8px;
-    margin: 0px 5px;
+    margin: 5px;
 }
 
 .search{
@@ -37,5 +37,15 @@
 
 .res-container{
     display: flex;
+    flex-wrap: wrap;
    
+}
+
+.res-logo{
+    width: 200px;
+    border-radius: 8px 8px 0px 0px;
+
+}
+.res-content{
+    padding: 5px;
 }
