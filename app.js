@@ -1104,7 +1104,6 @@ const Header = () => {
 const RestaurantCard = (props) => {
 
   //Destructuring is good practice
-  console.log(props);
   const { name,cuisines,avgRating,costForTwo,sla,cloudinaryImageId } = props.resData?.info;   //Optional chaining
 
   return (
@@ -1135,7 +1134,7 @@ const Body = () => {
       <div className="search">Search</div>
       <div className="res-container">
         {
-        resList.map((restaurant)=> <RestaurantCard resData = {restaurant}/> )
+        resList.map((restaurant)=> <RestaurantCard key={restaurant.info.id} resData = {restaurant}/> )
         }
       </div>
     </div>
