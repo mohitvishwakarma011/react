@@ -1,5 +1,10 @@
-import {header_logo} from '../utils/constants'
+import { useState } from 'react';
+import {header_logo} from '../utils/constants';
+
 const Header = () => {
+
+  const [btnName,setBtnName] = useState("Login");
+
     return (
       <nav className="nav">
         <img
@@ -10,6 +15,9 @@ const Header = () => {
           <li>Home</li>
           <li>About</li>
           <li>Cart</li>
+        <button className='loginBtn' onClick={()=>{
+          btnName==="Login"?setBtnName("LogOut"):setBtnName("Login");
+        }}>{btnName}</button>
         </ul>
       </nav>
     );

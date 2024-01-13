@@ -6,7 +6,6 @@ const Body = () => {
   const [resList, setResList] = useState([]);
 
   useEffect(() => {
-    console.log("I am Khali");
     fetchData();
   }, []);
 
