@@ -2,7 +2,6 @@ import RestaurantCard from "./RestaurantCard.js";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer.js";
 
-
 const Body = () => {
   const [resList, setResList] = useState([]);
 
@@ -23,11 +22,7 @@ const Body = () => {
     );
   };
 
-  if (resList.length === 0) {
-    return <Shimmer/>
-  }
-
-  return (
+  return resList.length === 0 ? (  <Shimmer />) : (
     <div className="body">
       <button
         className="filter-btn"
