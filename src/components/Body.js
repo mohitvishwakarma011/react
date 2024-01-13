@@ -1,5 +1,7 @@
 import RestaurantCard from "./RestaurantCard.js";
 import { useState, useEffect } from "react";
+import Shimmer from "./Shimmer.js";
+
 
 const Body = () => {
   const [resList, setResList] = useState([]);
@@ -22,9 +24,9 @@ const Body = () => {
   };
 
   if (resList.length === 0) {
-    return <h1 style={{ textAlign: "center" }}>Loading data...</h1>;
+    return <Shimmer/>
   }
-  
+
   return (
     <div className="body">
       <button
