@@ -1,24 +1,38 @@
-import resListMock from "../utils/mockData.js";
 import RestaurantCard from "./RestaurantCard.js";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Body = () => {
+  const [resList, setResList] = useState([]);
 
-//Local state variable
+  useEffect(() => {
+    console.log("I am Khali");
+    fetchData();
+  }, []);
 
-//  const [resList,setResList] = useState(resListMock); ==>  const arr = useState(resListMock)        Both are same thing
-//                                                           const resList = arr[0]
-//                                                           const setResList = arr[1] 
+  const fetchData = async () => {
+    const Data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.9050007&lng=79.1887115&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
 
-// useState returns an array and we are destructuring array on the way or we can also do like shown in the second example
+    const jsonData = await Data.json();
+    setResList(
+      jsonData?.data?.cards[0]?.card.card?.gridElements?.infoWithStyle
+        ?.restaurants
+    );
+  };
 
-  const [resList,setResList] = useState(resListMock);  
+  if (resList.length === 0) {
+    return <h1 style={{ textAlign: "center" }}>Loading data...</h1>;
+  }
+  
   return (
     <div className="body">
       <button
         className="filter-btn"
         onClick={() => {
-          const filteredData = resList.filter((restaurant) => restaurant.info.avgRating > 4.5);
+          const filteredData = resList.filter(
+            (restaurant) => restaurant.info.avgRating > 4.5
+          );
           setResList(filteredData);
         }}
       >
