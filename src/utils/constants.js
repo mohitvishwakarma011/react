@@ -2,4 +2,6 @@
 
  const res_logo_cdn = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
- export {header_logo,res_logo_cdn}
+ const res_menu_url = "https://www.swiggy.com/restaurants/bapu-ki-kutia-narmada-road-gorakhpur-jabalpur-";
+ 
+ export {header_logo,res_logo_cdn,res_menu_url}

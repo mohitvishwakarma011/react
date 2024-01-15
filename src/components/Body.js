@@ -1,13 +1,14 @@
 import RestaurantCard from "./RestaurantCard.js";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer.js";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [resList, setResList] = useState([]);
   const [workingResList, setWorkingResList] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
-  console.log("Body rendered");
+  // console.log("Body rendered");
 
   useEffect(() => {
     fetchData();
@@ -62,9 +63,16 @@ const Body = () => {
       </button>
 
       <div className="res-container">
-        {workingResList.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
-        ))}
+        {workingResList.map((restaurant) => {
+          return (
+            <Link
+              to={"/restaurantmenu/" + restaurant.info.id}
+              key={restaurant.info.id}
+            >
+              <RestaurantCard resData={restaurant} />
+            </Link>
+          );
+        })}
       </div>
     </div>
   );

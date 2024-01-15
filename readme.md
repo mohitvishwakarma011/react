@@ -16,3 +16,8 @@
  *    -Address
  *    -Contact
  */
+
+
+ Two types of routing:-
+ 1. Client Side Routing
+ 2. Server side routing
