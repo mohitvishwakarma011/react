@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer.js";
 
 const Body = () => {
-  console.log("Body render");
   const [resList, setResList] = useState([]);
   const [workingResList, setWorkingResList] = useState([]);
   const [inputValue, setInputValue] = useState("");
