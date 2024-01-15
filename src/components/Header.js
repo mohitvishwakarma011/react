@@ -12,9 +12,12 @@ const Header = () => {
           className="logo"
         ></img>
         <ul className="nav-items">
-          <li>Home</li>
-          <li>About</li>
-          <li>Cart</li>
+
+          <li><a href='/'>Home</a></li>
+          <li><a href='/about'>About</a></li>
+          <li><a href='/contact'>Contact</a></li>
+          <li><a href=''>Cart</a></li>
+          
         <button className='loginBtn' onClick={()=>{
           btnName==="Login"?setBtnName("LogOut"):setBtnName("Login");
         }}>{btnName}</button>
