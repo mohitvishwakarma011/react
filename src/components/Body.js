@@ -7,6 +7,8 @@ const Body = () => {
   const [workingResList, setWorkingResList] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
+  console.log("Body rendered");
+
   useEffect(() => {
     fetchData();
   }, []);
