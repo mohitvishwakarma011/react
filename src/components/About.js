@@ -17,10 +17,29 @@ class About extends React.Component{
             <div className="about-us">
                 <h1>About Us Page</h1>
                 <p>Welcome to DieHardFoodie</p>
-                <UserClass name={"Mohit Vishwakarma"} location={"Narsinghpur"}/>
+                <UserClass name={"First "} location={"Narsinghpur"}/>
+                <UserClass name={"Second"} location={"Narsinghpur"}/>
             </div>
         )
     }
 }
 
+/*
+-parent constructor
+-parent render
+
+    -first child constructor
+    -first child render
+
+    -second child constructor 
+    -second child render
+
+<DOM Updated - In single Batch >
+
+    -first child componentDidMount
+    -second child componentDidMount
+    
+-parent componentDidMount
+
+*/
 export default About;
