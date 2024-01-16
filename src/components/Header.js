@@ -14,10 +14,10 @@ const Header = () => {
         ></img>
         <ul className="nav-items">
 
-          <li><Link to='/'>Home</Link></li>
-          <li><Link to='/about'>About</Link></li>
-          <li><Link to='/contact'>Contact</Link></li>
-          <li><Link to=''>Cart</Link></li>
+          <li className='link'><Link to='/'>Home</Link></li>
+          <li className='link'><Link to='/about'>About</Link></li>
+          <li className='link'><Link to='/contact'>Contact</Link></li>
+          <li className='link'><Link to=''>Cart</Link></li>
 
         <button className='loginBtn' onClick={()=>{
           btnName==="Login"?setBtnName("LogOut"):setBtnName("Login");
