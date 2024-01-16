@@ -11,6 +11,7 @@ class UserClass extends React.Component {
     };
   }
   render() {
+    console.log("render called");
     const { name, location } = this.props;
     return (
       <div className="user-card">
@@ -18,7 +19,12 @@ class UserClass extends React.Component {
         <h3>Location: {location}</h3>
         <h3>Contact: @mohitaugust11</h3>
         <h3>Count: {this.state.count}</h3>
-        <h3>Count: {this.state.count2}</h3>
+        <h3>Count2: {this.state.count2}</h3>
+        <button onClick={()=>{
+            this.setState({
+                count:this.state.count+1
+            })
+        }}>Increase Count</button>
       </div>
     );
   }
