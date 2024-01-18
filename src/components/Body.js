@@ -1,46 +1,31 @@
 import RestaurantCard from "./RestaurantCard.js";
-import { useState, useEffect } from "react";
+import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer.js";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus.js";
+import useResList from "../utils/useResList.js";
 
 const Body = () => {
-  const [resList, setResList] = useState([]);
-  const [workingResList, setWorkingResList] = useState([]);
+
+  const [resList,workingResList, setWorkingResList] = useResList();
+
   const [inputValue, setInputValue] = useState("");
 
-  // console.log("Body rendered");
+  const onlineStatus = useOnlineStatus();
 
-  useEffect(() => {
-    fetchData();
-  }, []);
 
-  const fetchData = async () => {
-    const Data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.1685786&lng=79.9338798&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+  if(onlineStatus===false) return (<h1>Looks like you're offline!! Please check your internet connection...</h1>);
 
-    const jsonData = await Data.json();
-    setResList(
-      jsonData?.data?.cards[4]?.card.card?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
-    setWorkingResList(
-      jsonData?.data?.cards[4]?.card.card?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
-  };
+  return (workingResList.length === 0) ? (<Shimmer />) : (
 
-  return workingResList.length === 0 ? (
-    <Shimmer />
-  ) : (
     <div className="body">
       <button
         className="filter-btn"
         onClick={() => {
           const filteredData = resList.filter(
-            (restaurant) => restaurant.info.avgRating > 4.5
+            (restaurant) => restaurant.info.avgRating > 4
           );
-          setResList(filteredData);
+          setWorkingResList(filteredData);
         }}
       >
         Filter Restaurant
