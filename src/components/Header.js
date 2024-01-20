@@ -9,8 +9,11 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
 
     return (
-      <nav className="flex justify-between bg-sky-200 shadow-lg h-24">
-        <img src={header_logo} className="w-22 h-22"></img>
+      <nav className="flex justify-between bg-white shadow-lg h-24">
+        <div className='h-24 w-22 flex '>
+        <img src={header_logo} className=" h-22 w-22 ms-10"></img>
+        <span className='text-center font-bold text-gray-400 my-auto text-2xl'>DieHard<span className='text-slate-500'>Foodie</span></span>
+        </div>
 
         <ul className="flex me-4 ">
           <li className='my-auto mx-3'>Status:{onlineStatus?"🟢":"🔴"}</li>

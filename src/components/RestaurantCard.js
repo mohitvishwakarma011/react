@@ -4,8 +4,6 @@ const RestaurantCard = (props) => {
   const { name, cuisines, avgRating, costForTwo, sla, cloudinaryImageId } =
     props.resData?.info; //Optional chaining
 
-    console.log(props.resData);
-
   return (
     <div className="w-52 m-4 border bg-sky-100 p-2 rounded-lg">
       <img
@@ -25,9 +23,8 @@ const RestaurantCard = (props) => {
 };
 
  //Higher Order component
-  // 
 
-  //input - RestaurantCard => RestaurantCardPromoted (output)
+ //input - RestaurantCard => RestaurantCardPromoted (output)
 
   
  export const withPromotedLabel = (RestaurantCard)=>{

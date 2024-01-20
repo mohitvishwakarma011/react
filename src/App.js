@@ -11,7 +11,7 @@ import Shimmer from "./components/Shimmer";
 
 const AppLayout = () => {
   return (
-    <div className="app">
+    <div className="bg-gray-50 ">
       <Header />
       <Outlet />
     </div>
