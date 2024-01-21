@@ -1,11 +1,10 @@
 import { useState } from "react";
 import ItemList from "./ItemList";
-const RestaurantCategory = ({data})=>{
+const RestaurantCategory = ({data,showMenu,setShowindex})=>{
 
-    const[showMenu,setShowMenu] = useState(false);
 
     const handleClick = ()=>{
-        setShowMenu(!showMenu);
+        setShowindex();
     }
     return(
         <div className="w-full bg-gray-50 shadow-md p-4 my-4 ">
@@ -20,4 +19,4 @@ const RestaurantCategory = ({data})=>{
     
 }
 
-export default RestaurantCategory;
+export default RestaurantCategory; 

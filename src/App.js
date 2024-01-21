@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -8,13 +8,28 @@ import About from "./components/About";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Shimmer from "./components/Shimmer";
+import UserContext from "./utils/UserContext";
 
 const AppLayout = () => {
+
+  const [userName,setUserName] = useState(null);
+  useEffect(()=>{
+    // Making an api call to get user name 
+    const data = {
+      name:"Mohit Vishwakarma"
+    }
+
+    setUserName(data.name);
+  },[])
+
   return (
+    <UserContext.Provider value={{loggedInUser:userName,setUserName}}>
+
     <div className="bg-gray-50 ">
       <Header />
       <Outlet />
     </div>
+    </UserContext.Provider>
   );
 };
 
