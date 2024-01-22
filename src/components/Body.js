@@ -10,7 +10,6 @@ import userContext from "../utils/UserContext.js";
 const Body = () => {
 
   const [resList,workingResList, setWorkingResList] = useResList();
-  console.log(workingResList);
 
   const [inputValue, setInputValue] = useState("");
 

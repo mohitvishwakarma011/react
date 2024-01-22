@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import useOnlineStatus from '../utils/useOnlineStatus';
 import { useContext } from 'react';
 import userContext from '../utils/UserContext';
+import {  useSelector } from 'react-redux';
 
 const Header = () => {
 
@@ -11,6 +12,9 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   const {loggedInUser} = useContext(userContext)
+
+  const cartItems = useSelector((store)=>store.cart.items)
+
 
     return (
       <nav className="flex justify-between bg-white shadow-lg h-24">
@@ -26,7 +30,7 @@ const Header = () => {
           <li className='my-auto mx-3'><Link to='/'>Home</Link></li>
           <li className='my-auto mx-3'><Link to='/about'>About</Link></li>
           <li className='my-auto mx-3'><Link to='/contact'>Contact</Link></li>
-          <li className='my-auto mx-3'><Link to=''>Cart</Link></li>
+          <li className='my-auto mx-3'><Link to='/cart'>Cart-{cartItems.length}</Link></li>
 
           <button className='border-2 border-black my-auto p-1 rounded' onClick={()=>{
           btnName==="Login"?setBtnName("LogOut"):setBtnName("Login");

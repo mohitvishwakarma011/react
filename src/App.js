@@ -9,6 +9,9 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Shimmer from "./components/Shimmer";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart"
 
 const AppLayout = () => {
 
@@ -23,6 +26,8 @@ const AppLayout = () => {
   },[])
 
   return (
+    <Provider store={appStore}>
+
     <UserContext.Provider value={{loggedInUser:userName,setUserName}}>
 
     <div className="bg-gray-50 ">
@@ -30,6 +35,7 @@ const AppLayout = () => {
       <Outlet />
     </div>
     </UserContext.Provider>
+    </Provider>
   );
 };
 
@@ -63,6 +69,10 @@ const router = createBrowserRouter([
       {
         path: "/restaurantmenu/:resId",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
     errorElement: <Error />,
