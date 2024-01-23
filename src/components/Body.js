@@ -1,4 +1,4 @@
-import RestaurantCard, { withPromotedLabel } from "./RestaurantCard.js";
+import RestaurantCard, { WithPromotedLabel } from "./RestaurantCard.js";
 import { useState } from "react";
 import Shimmer from "./Shimmer.js";
 import { Link } from "react-router-dom";
@@ -15,7 +15,7 @@ const Body = () => {
 
   const onlineStatus = useOnlineStatus();
 
-  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
+  const RestaurantCardPromoted = WithPromotedLabel(RestaurantCard);
 
   //UserContext functionality
   const {loggedInUser,setUserName} = useContext(userContext);

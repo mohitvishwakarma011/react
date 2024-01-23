@@ -27,7 +27,7 @@ const RestaurantCard = (props) => {
  //input - RestaurantCard => RestaurantCardPromoted (output)
 
   
- export const withPromotedLabel = (RestaurantCard)=>{
+ export const WithPromotedLabel = (RestaurantCard)=>{
 
     return (props)=>{
 
