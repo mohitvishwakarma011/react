@@ -13,11 +13,3 @@ it("Should render Rrstaurant Card with props Data",()=>{
     expect(name).toBeInTheDocument();
 })
 
-it("Should render Rrstaurant Card with veg label",()=>{
-
-    render(<WithPromotedLabel resData={MOCK_DATA}/>);
-
-    // const tag  = screen.getByRole("label");              not completed yet
-
-    // expect(tag).toBeInTheDocument();
-})

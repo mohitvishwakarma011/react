@@ -4,6 +4,19 @@ import "@testing-library/jest-dom";
 
 describe("Contact Us page test case,",()=>{
 
+    // beforeAll(()=>{
+    //     console.log("before All")
+    // })
+    // beforeEach(()=>{
+    //     console.log("before Each")
+    // })
+    // afterAll(()=>{
+    //     console.log("After All")
+    // })
+    // afterEach(()=>{
+    //     console.log("After Each")
+    // })
+
     it("should render heading inside Contact component",()=>{
 
         render(<Contact/>);

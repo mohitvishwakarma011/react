@@ -11,6 +11,8 @@ const Body = () => {
 
   const [resList,workingResList, setWorkingResList] = useResList();
 
+  // console.log(workingResList);
+
   const [inputValue, setInputValue] = useState("");
 
   const onlineStatus = useOnlineStatus();
@@ -22,16 +24,17 @@ const Body = () => {
 
   if(onlineStatus===false) return (<h1>Looks like you're offline!! Please check your internet connection...</h1>);
 
-  return (workingResList.length === 0) ? (<Shimmer />) : (
+  return (workingResList?.length === 0) ? (<Shimmer />) : (
 
     <div className="mt-3">
       <input
+      data-testid="searchInput"
       className="border border-black rounded ms-11 p-1"
         type="text"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
       />
-      <button className="font-medium border border-black ms-3 p-1 rounded-md bg-sky-200 hover:bg-sky-300 "
+      <button data-testid="searchButton" className="font-medium border border-black ms-3 p-1 rounded-md bg-sky-200 hover:bg-sky-300 "
         onClick={() => {
           const filteredList = resList.filter((res) =>
             res.info.name.toLowerCase().includes(inputValue.toLowerCase())
@@ -64,7 +67,7 @@ const Body = () => {
 <hr className="my-2"/>
       <div className="flex flex-wrap justify-start ">
         { 
-        workingResList.map((restaurant) => {
+        workingResList?.map((restaurant) => {
           return (
             <Link
               to={"/restaurantmenu/" + restaurant.info.id}
