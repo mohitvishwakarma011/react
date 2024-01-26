@@ -11,8 +11,6 @@ const Body = () => {
 
   const [resList,workingResList, setWorkingResList] = useResList();
 
-  // console.log(workingResList);
-
   const [inputValue, setInputValue] = useState("");
 
   const onlineStatus = useOnlineStatus();
@@ -27,7 +25,7 @@ const Body = () => {
   return (workingResList?.length === 0) ? (<Shimmer />) : (
 
     <div className="mt-3">
-      <input
+      {/* <input
       data-testid="searchInput"
       className="border border-black rounded ms-11 p-1"
         type="text"
@@ -61,10 +59,11 @@ const Body = () => {
         type="text"
         value={loggedInUser}
         onChange={(e) => setUserName(e.target.value)}
-      />
+      /> */}
 
 
-<hr className="my-2"/>
+    <hr className="my-2"/>
+
       <div className="flex flex-wrap justify-start ">
         { 
         workingResList?.map((restaurant) => {

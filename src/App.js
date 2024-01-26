@@ -43,7 +43,7 @@ const Grocery = lazy(() => import("./components/Grocery"));
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <AppLayout />,
+    element: <AppLayout className="box-border" />,
     children: [
       {
         path: "/",
