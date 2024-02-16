@@ -5,14 +5,14 @@ const RestaurantCard = (props) => {
     props.resData?.info; //Optional chaining
 
   return (
-    <div data-testid="resCard" className="w-52 m-4 border bg-sky-100 p-2 rounded-lg">
+    <div data-testid="resCard" className="w-52 h-[400px] m-4 border bg-gray-200 p-2 rounded-lg">
       <img
         className="h-48 w-48 object-cover rounded-lg"
         src={res_logo_cdn + cloudinaryImageId}
         alt="res-logo"
       ></img>{" "}
       <div className="mt-2">
-        <h2 className="font-bold text-sky-600 text-lg mb-2">{name}</h2>
+        <h2 className="font-bold bg-gray-200 text-lg mb-2">{name}</h2>
         <p>{cuisines.length>3?cuisines.slice(0,2).join(", "):cuisines.join(", ")} </p>
         <span>Rating: </span><span>{avgRating}</span>
         <p>time: {sla.deliveryTime} mins</p>

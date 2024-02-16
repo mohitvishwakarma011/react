@@ -11,9 +11,7 @@ const Cart = ()=>{
         dispatch(removeItem(id));
     }
     const cartItems = useSelector((store)=>{
-        // console.log(store);
-        // console.log(store.cart);
-        // console.log(store.cart.items);
+
        return store.cart.items})
     return(
         <div className="w-6/12 m-auto">

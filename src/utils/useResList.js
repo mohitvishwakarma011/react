@@ -1,9 +1,10 @@
 import {useState,useEffect} from "react";
+import { swiggy_jbp_url } from "./constants";
 
 
 const useResList = () => {
-  const [resList, setResList] = useState([]);
-  const [workingResList, setWorkingResList] = useState([]);
+  const [API_DATA, setAPI_DATA] = useState([]);
+  // const [workingResList, setWorkingResList] = useState([]);
   
 
   useEffect(() => 
@@ -12,25 +13,16 @@ const useResList = () => {
     }, []);
 
     const fetchData = async () => {
-    const Data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.1685786&lng=79.9338798&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+    const Data = await fetch(swiggy_jbp_url);
 
     const jsonData = await Data.json();
 
-    // console.log(jsonData);
 
-    setResList(
-      jsonData?.data?.cards[4]?.card.card?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
-
-    setWorkingResList(
-      jsonData?.data?.cards[4]?.card.card?.gridElements?.infoWithStyle
-          ?.restaurants
-      );
+    setAPI_DATA(jsonData.data.cards);
 
   };
 
-  return [resList,workingResList,setWorkingResList];
+  return API_DATA;
 };
 
 

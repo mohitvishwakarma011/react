@@ -5,35 +5,32 @@ import Body from "./components/Body";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import About from "./components/About";
-import { createBrowserRouter, RouterProvider, Outlet} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
 import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
-import Cart from "./components/Cart"
+import Cart from "./components/Cart";
 
 const AppLayout = () => {
-
-  const [userName,setUserName] = useState(null);
-  useEffect(()=>{
-    // Making an api call to get user name 
+  const [userName, setUserName] = useState(null);
+  useEffect(() => {
+    // Making an api call to get user name
     const data = {
-      name:"Mohit Vishwakarma"
-    }
+      name: "Mohit Vishwakarma",
+    };
 
     setUserName(data.name);
-  },[])
+  }, []);
 
   return (
     <Provider store={appStore}>
-
-    <UserContext.Provider value={{loggedInUser:userName,setUserName}}>
-
-    <div className="bg-gray-50 ">
-      <Header />
-      <Outlet />
-    </div>
-    </UserContext.Provider>
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <div className="bg-gray-50 ">
+          <Header />
+          <Outlet />
+        </div>
+      </UserContext.Provider>
     </Provider>
   );
 };
