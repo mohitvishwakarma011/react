@@ -2,11 +2,10 @@
   "name": "React by Akshay Saini",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
   "scripts": {
     "test": "jest",
     "test-watch": "jest --watch",
-    "start": "parcel index.html",
+    "start": "parcel index.html && parcel watch index.html",
     "build": "parcel build index.html"
   },
   "keywords": [],

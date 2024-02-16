@@ -9,22 +9,22 @@ import RestaurantCategory from "./RestaurantCategory";
 const RestaurantMenu = ()=>{
 
     const {resId} = useParams();
+    
     const resMenu =  useRestaurantMenu(resId);
 
     const[showIndex,setShowindex] = useState(null);
 
     
-    if(resMenu===null) return (<Shimmer/>);
+    if(!resMenu) return (<Shimmer/>);
     
     const resInfo = resMenu?.cards[0]?.card?.card?.info;
     
-    const resMenuList = resMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards
     const itemCategorylist = resMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(c=>{
        return c.card.card["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory";
     });
 
     return(
-        <div className="w-6/12 mx-auto mt-4">
+        <div className="w-6/12 mx-auto mt-4 h-screen">
             <div className="flex justify-between my-3">
             <div>
             <h2 className="font-bold text-2xl text-slate-800">{resInfo.name}</h2>
